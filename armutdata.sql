@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Anamakine: 127.0.0.1
--- Üretim Zamanı: 27 May 2025, 18:22:05
+-- Üretim Zamanı: 01 Haz 2025, 19:02:35
 -- Sunucu sürümü: 10.4.32-MariaDB
--- PHP Sürümü: 8.2.12
+-- PHP Sürümü: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -287,7 +287,11 @@ INSERT INTO `hizmetalanlar` (`HizmetAlanID`, `Ad`, `Soyad`, `Konum`, `Telefon`, 
 (47, 'Doğan', 'Köse', 'Elazığ', '5551111047', 'dogan.kose@example.com', '12345'),
 (48, 'Reyhan', 'Akça', 'Bingöl', '5551111048', 'reyhan.akca@example.com', '12345'),
 (49, 'Ferhat', 'Çetin', 'Bitlis', '5551111049', 'ferhat.cetin@example.com', '12345'),
-(50, 'Eren', 'Torun', 'Siirt', '5551111050', 'eren.torun@example.com', '12345');
+(50, 'Eren', 'Torun', 'Siirt', '5551111050', 'eren.torun@example.com', '12345'),
+(51, 'Mert', 'Servi', 'sivrihisar eskisehir', '05522635438', 'mertiservi@gmail.com', '861638'),
+(52, 'murat', 'murat', 'sivrihisar eskisehir', '4569872233', 'murat@example.com', '131'),
+(53, 'leyla', 'leyla', 'sivrihisar eskisehir', '646165164', 'leyla@example.com', 'leyla'),
+(54, 'mine', 'mine', 'sivrihisar eskisehir', '544645165156', 'mine@example.com', 'mine');
 
 -- --------------------------------------------------------
 
@@ -400,7 +404,9 @@ INSERT INTO `hizmetverenler` (`HizmetVerenID`, `SahisMiSirketMi`, `Ad`, `Soyad`,
 (30, 'Şahıs', 'Fatih', 'Taş', 'Giresun', '5551234530', 'diger2@example.com', '12345', 8, 30, 'Grafik tasarım projeleri.'),
 (31, 'Şirket', 'Yasemin', 'Koç', 'Hakkari', '5551234531', 'diger3@example.com', '12345', 8, 31, 'Web sitesi tasarımı.'),
 (32, 'Şahıs', 'Cemre', 'Demir', 'Isparta', '5551234532', 'diger4@example.com', '12345', 8, 32, 'SEO ve içerik üretimi.'),
-(33, 'sahis', 'Saul', 'Goodman', 'Albuquerque', '(505) 842-5662', 'bettercallsaul@gmail.com', 'walterwhite31', 8, 122, 'Better Call Saul');
+(33, 'sahis', 'Saul', 'Goodman', 'Albuquerque', '(505) 842-5662', 'bettercallsaul@gmail.com', 'walterwhite31', 8, 122, 'Better Call Saul'),
+(34, 'sirket', 'adem', 'adem', 'sivrihisar eskisehir', '05522635437', 'adem@example.com', '895623', 6, 91, 'vfgdkjhjlfvmldfsmbgf'),
+(35, 'sirket', 'kazim', 'kazim', 'sivrihisar eskisehir', '6546651651', 'kazim@example.com', '789', 1, 7, 'erytmklk,jh');
 
 -- --------------------------------------------------------
 
@@ -451,7 +457,16 @@ CREATE TABLE `teklifler` (
 
 INSERT INTO `teklifler` (`TeklifID`, `HizmetAlanID`, `HizmetID`, `HizmetVerenID`, `TeklifTutari`, `Aciklama`, `TeklifTarihi`, `Durum`) VALUES
 (5, 1, NULL, 33, 21312.00, 'deneme', '2025-05-27 18:16:50', 'kabul edildi'),
-(6, 2, NULL, 33, 10000.00, 'Adam yaralama.', '2025-05-27 19:16:55', 'reddedildi');
+(6, 2, NULL, 33, 10000.00, 'Adam yaralama.', '2025-05-27 19:16:55', 'reddedildi'),
+(7, 51, NULL, 33, 10000.00, 'sivrihisarda met yapiyolar', '2025-06-01 16:47:41', 'reddedildi'),
+(8, 51, NULL, 33, 50000.00, 'sivrihisarda met yapiyoruz avukata ihtiyacimiz var', '2025-06-01 18:03:51', 'kabul edildi'),
+(9, 51, NULL, 26, 80000.00, 'acilll', '2025-06-01 18:07:26', 'beklemede'),
+(10, 51, NULL, 33, 800000.00, 'nkfvjsnifdgblkmdgh; j', '2025-06-01 18:07:55', 'reddedildi'),
+(11, 51, NULL, 33, 50000.00, 'vlkndsbnjhndf', '2025-06-01 18:58:52', 'kabul edildi'),
+(12, 52, NULL, 33, 40000.00, 'kvln;slgbmlknmedoghijb', '2025-06-01 19:09:27', 'reddedildi'),
+(13, 51, NULL, 33, 100000.00, 'alkollu araba kullandim yardima ihtiyacim var', '2025-06-01 19:13:51', 'kabul edildi'),
+(14, 51, NULL, 33, 8888888.00, 'skvanlsfod;bvs', '2025-06-01 19:37:46', 'reddedildi'),
+(15, 54, NULL, 33, 99999999.99, 'bosanma davasi', '2025-06-01 19:41:14', 'beklemede');
 
 --
 -- Dökümü yapılmış tablolar için indeksler
@@ -530,7 +545,7 @@ ALTER TABLE `geribildirimler`
 -- Tablo için AUTO_INCREMENT değeri `hizmetalanlar`
 --
 ALTER TABLE `hizmetalanlar`
-  MODIFY `HizmetAlanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+  MODIFY `HizmetAlanID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `hizmetler`
@@ -542,7 +557,7 @@ ALTER TABLE `hizmetler`
 -- Tablo için AUTO_INCREMENT değeri `hizmetverenler`
 --
 ALTER TABLE `hizmetverenler`
-  MODIFY `HizmetVerenID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `HizmetVerenID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Tablo için AUTO_INCREMENT değeri `kategoriler`
@@ -554,7 +569,7 @@ ALTER TABLE `kategoriler`
 -- Tablo için AUTO_INCREMENT değeri `teklifler`
 --
 ALTER TABLE `teklifler`
-  MODIFY `TeklifID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `TeklifID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- Dökümü yapılmış tablolar için kısıtlamalar
